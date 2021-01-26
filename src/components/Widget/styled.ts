@@ -18,19 +18,25 @@ export const Container = styled.div`
     `}
 `
 
-export const Title = styled.h1`
+export const TitleContainer = styled.h1`
   ${({ theme }) =>
     css`
+      display: flex;
+      align-items: center;
       width: 100%;
       height: auto;
-      line-height: 1;
       font-weight: 700;
-      margin-bottom: 0;
       padding: 16px 32px;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
       background: ${theme.colors.primary};
     `}
+`
+
+export const Title = styled.h1`
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 `
 
 export const Content = styled.div`
@@ -38,4 +44,28 @@ export const Content = styled.div`
   font-weight: 400;
   font-size: 0.95rem;
   padding: 24px 32px 32px 32px;
+`
+
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: #b39cf980;
+  }
+
+  & svg {
+    margin: 1px;
+  }
+
+  & svg path {
+    stroke-width: 3;
+  }
 `
