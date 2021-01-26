@@ -3,8 +3,12 @@ import { useState } from 'react'
 
 import Button from 'components/Button'
 import Widget from 'components/Widget'
+import Footer from 'components/Footer'
+import QuizLogo from 'components/QuizLogo'
 import { Spacer } from 'components/Spacer'
 import TextField from 'components/TextField'
+
+import * as S from './styled'
 
 export type QuizStarterProps = {
   title: string
@@ -19,7 +23,11 @@ const QuizStarter = ({ title, description }: QuizStarterProps) => {
   }
 
   return (
-    <>
+    <S.Container>
+      <QuizLogo />
+
+      <Spacer size={24} />
+
       <Widget title={title}>
         <span>{description}</span>
 
@@ -47,7 +55,11 @@ const QuizStarter = ({ title, description }: QuizStarterProps) => {
           <strong>Imersão React Next.js</strong> fez:
         </span>
       </Widget>
-    </>
+
+      <Spacer size={24} />
+
+      <Footer />
+    </S.Container>
   )
 }
 

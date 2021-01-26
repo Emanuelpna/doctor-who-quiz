@@ -4,7 +4,7 @@ export const Container = styled.div`
   ${({ theme }) =>
     css`
       height: auto;
-      max-width: 22rem;
+      width: 100%;
       margin: 0 auto;
       background: ${theme.colors.mainBg};
       border-radius: ${theme.borderRadius};

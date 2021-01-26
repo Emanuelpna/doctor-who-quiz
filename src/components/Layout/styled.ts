@@ -12,7 +12,7 @@ export const BackgroundImage = styled.div<{ imageBg: string }>`
     flex: 1;
     background-size: cover;
     padding-right: 50%;
-    padding-top: 8rem;
+    padding-top: 6rem;
 
     @media screen and (max-width: 800px) {
       padding-right: 6%;
