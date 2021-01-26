@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState, FormEvent } from 'react'
 
 import Button from 'components/Button'
 import Widget from 'components/Widget'
@@ -8,22 +8,37 @@ import QuizLogo from 'components/QuizLogo'
 import { Spacer } from 'components/Spacer'
 import TextField from 'components/TextField'
 
-import * as S from './styled'
-
 export type QuizStarterProps = {
   title: string
   description: string
 }
 
 const QuizStarter = ({ title, description }: QuizStarterProps) => {
+  const router = useRouter()
+
   const [playerName, setPlayerName] = useState('')
 
   const onChangeCallback = (value: string) => {
     setPlayerName(value)
   }
 
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault()
+
+    router.push({
+      pathname: '/quiz',
+      query: {
+        name: playerName
+      }
+    })
+  }
+
+  useEffect(() => {
+    router.prefetch('/quiz')
+  }, [router])
+
   return (
-    <S.Container>
+    <>
       <QuizLogo />
 
       <Spacer size={24} />
@@ -33,16 +48,18 @@ const QuizStarter = ({ title, description }: QuizStarterProps) => {
 
         <Spacer size={24} />
 
-        <TextField
-          onChangeCallback={onChangeCallback}
-          placeholder="Diz aí seu nome pra jogar :)"
-        />
+        <form onSubmit={onSubmit}>
+          <TextField
+            onChangeCallback={onChangeCallback}
+            placeholder="Diz aí seu nome pra jogar :)"
+          />
 
-        <Spacer size={24} />
+          <Spacer size={24} />
 
-        <Button disabled={!playerName}>
-          <Link href="/quiz">Jogar</Link>
-        </Button>
+          <Button disabled={!playerName} type="submit">
+            Jogar
+          </Button>
+        </form>
       </Widget>
 
       <Spacer size={24} />
@@ -59,7 +76,7 @@ const QuizStarter = ({ title, description }: QuizStarterProps) => {
       <Spacer size={24} />
 
       <Footer />
-    </S.Container>
+    </>
   )
 }
 
