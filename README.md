@@ -1,28 +1,18 @@
-# TypeScript & Styled Components Next.js example
+# Doctor Who Quiz
 
-This is a really simple project that show the usage of Next.js with TypeScript and Styled Components.
+![Print da tela inicial do Projeto](./cover.jpg)
 
-## Deploy your own
+Projeto de um Quiz sobre Doctor Who desenvolvido durante a "Imersão Alura React e Next.js"
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## 💻 Como iniciar o projeto 💻
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components&project-name=with-typescript-styled-components&repository-name=with-typescript-styled-components)
+ - [x] Clone o projeto. `git clone https://github.com/Emanuelpna/doctor-who-quiz.git`
+ - [x] Instale as dependências. `npm install` ou `yarn`
+ - [x] Altere o db.json, se quiser ou precisar
+ - [x] Inicie o servidor de desenvolvimento. `npm run dev` ou `yarn dev`
 
-## How to use it?
+## 🔮 Links úteis 🔮
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Cores baseadas nesta paleta gerada no [Coolors](https://coolors.co/5e2bff-171123-fc6dab-f3fae1)
 
-```bash
-npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
-# or
-yarn create next-app --example with-typescript-styled-components with-typescript-styled-components-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This is an amalgamation of the 2 existing examples:
-
-- [with-typescript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
-- [with-styled-components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
+Imagem de fundo por: [Juliana Plechkova](https://www.artstation.com/artwork/yGryn)

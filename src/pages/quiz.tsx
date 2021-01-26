@@ -1,12 +1,14 @@
+import Link from 'next/link'
+
 import db from '../../db.json'
 
 import Layout from 'components/Layout'
-import QuizStarter from 'templates/QuizStarter'
 
 export default function Home() {
   return (
     <Layout imageBg={db.bg} bgCopy={db['bg-copy']}>
-      <QuizStarter title={db.title} description={db.description} />
+      <h1 style={{ color: db.theme.colors.contrastText }}>Página de Quiz</h1>
+      <Link href="/">Voltar</Link>
     </Layout>
   )
 }

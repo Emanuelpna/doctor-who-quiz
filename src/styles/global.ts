@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body, button {
     font-family: 'Heebo', sans-serif;
   }
 `

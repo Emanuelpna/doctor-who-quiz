@@ -4,8 +4,8 @@ export const Container = styled.div`
   ${({ theme }) =>
     css`
       height: auto;
-      max-width: 26rem;
-      margin: 2rem auto;
+      max-width: 22rem;
+      margin: 0 auto;
       background: ${theme.colors.mainBg};
       border-radius: ${theme.borderRadius};
       color: ${theme.colors.contrastText};
@@ -24,7 +24,6 @@ export const Title = styled.h1`
       width: 100%;
       height: auto;
       line-height: 1;
-      cursor: pointer;
       font-weight: 700;
       margin-bottom: 0;
       padding: 16px 32px;
