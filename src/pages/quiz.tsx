@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import db from '../../db.json'
 
 import Layout from 'components/Layout'
