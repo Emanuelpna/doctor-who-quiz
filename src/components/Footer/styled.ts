@@ -15,7 +15,7 @@ export const Container = styled.footer`
     }
 
     p {
-      max-width: 25ch;
+      max-width: 27ch;
     }
 
     a {

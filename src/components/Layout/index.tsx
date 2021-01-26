@@ -14,7 +14,9 @@ type LayoutProps = {
 
 const Layout = ({ imageBg, children, bgCopy }: LayoutProps) => (
   <S.Container>
-    <S.BackgroundImage imageBg={imageBg}>{children}</S.BackgroundImage>
+    <S.BackgroundImage imageBg={imageBg}>
+      <S.ContentContainer>{children}</S.ContentContainer>
+    </S.BackgroundImage>
 
     {!!bgCopy && <ImageCopyright copyName={bgCopy.name} copyUrl={bgCopy.url} />}
 

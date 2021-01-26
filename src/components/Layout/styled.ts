@@ -41,3 +41,8 @@ export const BackgroundImage = styled.div<{ imageBg: string }>`
     }
   `}
 `
+
+export const ContentContainer = styled.section`
+  max-width: 24rem;
+  margin: auto;
+`
