@@ -9,16 +9,30 @@ import { GlobalStyles } from 'styles/global'
 const theme = db.theme
 
 function App({ Component, pageProps }: AppProps) {
+  let url = ''
+  if (typeof window !== 'undefined') url = window.location.href ?? ''
+
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>Doctor Who Quiz</title>
-        <meta
-          name="description"
-          content="Teste seus conhecimentos na série Doctor Who"
-        />
+        {/* Primary Meta Tags */}
+        <title>{db.title}</title>
+        <meta name="title" content={db.title} />
+        <meta name="description" content={db.description} />
 
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={db.title} />
+        <meta property="og:description" content={db.description} />
         <meta property="og:image" content={db.bg} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:title" content={db.title} />
+        <meta property="twitter:description" content={db.description} />
+        <meta property="twitter:image" content={db.bg} />
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
