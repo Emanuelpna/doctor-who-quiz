@@ -18,7 +18,7 @@ export const Container = styled.div`
     `}
 `
 
-export const TitleContainer = styled.h1`
+export const TitleContainer = styled.div`
   ${({ theme }) =>
     css`
       display: flex;
