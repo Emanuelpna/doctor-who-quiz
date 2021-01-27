@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
-export const Container = styled.button<{ isLoading: boolean }>`
-  ${({ theme, isLoading }) =>
+export const Container = styled.button`
+  ${({ theme }) =>
     css`
       border: none;
       color: ${theme.colors.contrastText};
@@ -37,11 +37,5 @@ export const Container = styled.button<{ isLoading: boolean }>`
       &:disabled a {
         pointer-events: none;
       }
-
-      ${isLoading &&
-      css`
-        pointer-events: none;
-        cursor: not-allowed;
-      `}
     `}
 `
