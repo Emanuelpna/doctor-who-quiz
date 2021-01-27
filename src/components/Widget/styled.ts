@@ -65,7 +65,7 @@ export const IconContainer = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 9rem;
+  height: 10rem;
   object-fit: cover;
   object-position: center;
 `
