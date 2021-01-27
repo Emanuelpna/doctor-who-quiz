@@ -44,6 +44,7 @@ const Question = ({
     setTimeout(() => {
       setIsLoading(false)
       setIsCorrectAnswer(null)
+      setSelectedAnswer(-1)
 
       onAnswerSubmit && onAnswerSubmit(selectedAnswer, isCorrect)
     }, 3000)
