@@ -2,10 +2,19 @@ import styled, { css } from 'styled-components'
 
 import { LoadingProps } from '.'
 
-export const Container = styled.svg<LoadingProps>`
+export const Container = styled.div`
+  margin: auto;
+  text-align: center;
+
+  & span {
+    display: block;
+  }
+`
+
+export const Icon = styled.svg<LoadingProps>`
   ${({ theme, size }) => css`
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 
     & circle {
       stroke-width: 6px;
@@ -24,29 +33,19 @@ export const Container = styled.svg<LoadingProps>`
     `}
 
     & circle {
-      stroke-dashoffset: 0;
       stroke-dasharray: 150px;
-      animation: strokeSpin 5s linear reverse infinite;
-    }
-
-    & circle:nth-of-type(2) {
-      stroke: ${theme.colors.secondary};
-      stroke-dashoffset: 0;
-      stroke-dasharray: 150px;
-      animation: strokeSpin 3s linear reverse infinite;
+      stroke-dashoffset: 80px;
+      transform-origin: 50% 50%;
+      animation: strokeSpin 1.5s linear reverse infinite;
     }
 
     @keyframes strokeSpin {
       0% {
-        stroke-dashoffset: 0;
+        transform: rotate(0deg);
       }
-      50% {
-        stroke-dashoffset: 150px;
-      }
-      50.01% {
-        stroke-dashoffset: -150px;
-      }
+
       100% {
+        transform: rotate(360deg);
       }
     }
   `}
