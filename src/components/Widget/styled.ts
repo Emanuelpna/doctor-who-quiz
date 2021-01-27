@@ -39,13 +39,6 @@ export const Title = styled.h1`
   letter-spacing: 1px;
 `
 
-export const Content = styled.div`
-  line-height: 1;
-  font-weight: 400;
-  font-size: 0.95rem;
-  padding: 24px 32px 32px 32px;
-`
-
 export const IconContainer = styled.div`
   display: flex;
   align-items: center;
@@ -68,4 +61,18 @@ export const IconContainer = styled.div`
   & svg path {
     stroke-width: 3;
   }
+`
+
+export const Image = styled.img`
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  object-position: center;
+`
+
+export const Content = styled.div`
+  line-height: 1;
+  font-weight: 400;
+  font-size: 0.95rem;
+  padding: 24px 32px 32px 32px;
 `

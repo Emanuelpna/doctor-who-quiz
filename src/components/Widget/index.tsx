@@ -9,9 +9,15 @@ type WidgetProps = {
   children: React.ReactNode
   title?: string
   enableBackButton?: boolean
+  cover?: string
 }
 
-const Widget = ({ title, children, enableBackButton = false }: WidgetProps) => {
+const Widget = ({
+  title,
+  cover,
+  children,
+  enableBackButton = false
+}: WidgetProps) => {
   const router = useRouter()
 
   const backOnePage = () => router.back()
@@ -32,6 +38,8 @@ const Widget = ({ title, children, enableBackButton = false }: WidgetProps) => {
           <S.Title>{title}</S.Title>
         </S.TitleContainer>
       )}
+
+      {!!cover && <S.Image src={cover} />}
 
       <S.Content>{children}</S.Content>
     </S.Container>
