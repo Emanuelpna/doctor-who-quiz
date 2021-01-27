@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react'
 
 import Button from 'components/Button'
 import { Spacer } from 'components/Spacer'
+import AnswerStatus from 'components/AnswerStatus'
 
 import * as S from './styled'
 
@@ -87,15 +88,17 @@ const Question = ({
 
         <Spacer size={12} />
 
-        <Button
-          disabled={selectedAnswer < 0}
-          isLoading={isLoading}
-          type="submit"
-        >
-          Confirmar
-        </Button>
+        {isCorrectAnswer === null && (
+          <Button disabled={selectedAnswer < 0} type="submit">
+            Confirmar
+          </Button>
+        )}
 
         <Spacer size={12} />
+
+        {isCorrectAnswer !== null && (
+          <AnswerStatus isCorrect={isCorrectAnswer} />
+        )}
       </S.Form>
     </S.Container>
   )
