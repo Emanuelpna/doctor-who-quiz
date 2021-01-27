@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
-export const Container = styled.button`
-  ${({ theme }) =>
+export const Container = styled.button<{ isLoading: boolean }>`
+  ${({ theme, isLoading }) =>
     css`
       border: none;
       color: ${theme.colors.contrastText};
@@ -15,6 +15,10 @@ export const Container = styled.button`
       box-shadow: 0 6px 12px #0e0a1ca3;
       cursor: pointer;
       transition: 150ms ease-in-out;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover:not(:disabled) {
         filter: brightness(1.1);
@@ -33,5 +37,11 @@ export const Container = styled.button`
       &:disabled a {
         pointer-events: none;
       }
+
+      ${isLoading &&
+      css`
+        pointer-events: none;
+        cursor: not-allowed;
+      `}
     `}
 `
