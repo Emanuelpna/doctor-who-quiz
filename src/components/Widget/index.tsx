@@ -9,7 +9,7 @@ type WidgetProps = {
   children: React.ReactNode
   title?: string
   enableBackButton?: boolean
-  cover?: string
+  cover?: string | null
 }
 
 const Widget = ({
