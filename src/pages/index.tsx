@@ -42,13 +42,14 @@ export async function getStaticProps() {
 
     const allRepos: ApiGithubRepoResponse = await res.json()
 
-    const ignoreReposFrom = ['alura-challenges', 'omariosouto']
+    const ignoreReposFrom = ['alura-challenges', 'omariosouto', 'Emanuelpna']
 
     const top3Repos = allRepos.items
       .filter(
         (repo) =>
-          !repo.full_name.includes(ignoreReposFrom[0]) &&
-          !repo.full_name.includes(ignoreReposFrom[1])
+          !ignoreReposFrom.some((ignoredRepoAuthor) =>
+            repo.full_name.includes(ignoredRepoAuthor)
+          )
       )
       .slice(0, 3)
 
