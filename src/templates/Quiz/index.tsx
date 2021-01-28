@@ -8,6 +8,8 @@ import QuizLogo from 'components/QuizLogo'
 import { Spacer } from 'components/Spacer'
 import Question from 'components/Question'
 
+import { getQuizResultMessage } from 'services/getQuizResultMessage'
+
 export type QuestionType = {
   image: string
   title: string
@@ -104,10 +106,14 @@ const Quiz = ({ questions }: QuizProps) => {
         )}
 
         {currentQuizState === QuizState.RESULT && (
-          <strong>
-            {router.query.name}, você acertou{' '}
-            {answers.filter((answer) => !!answer.isCorrect).length} respostas!
-          </strong>
+          <span style={{ whiteSpace: 'pre-wrap' }}>
+            {getQuizResultMessage({
+              username: router.query.name as string,
+              correctAnswers: answers.filter((answer) => !!answer.isCorrect)
+                .length,
+              totalQuestions: answers.length
+            })}
+          </span>
         )}
       </Widget>
 
