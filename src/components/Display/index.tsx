@@ -13,5 +13,9 @@ export const Display = styled.li`
     &:last-of-type {
       margin-bottom: 0;
     }
+
+    &:hover {
+      background: ${theme.colors.primary}3D;
+    }
   `}
 `
