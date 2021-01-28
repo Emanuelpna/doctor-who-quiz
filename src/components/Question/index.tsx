@@ -21,14 +21,15 @@ const Question = ({
   description,
   onAnswerSubmit
 }: QuestionProps) => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isShowingResults, setIsShowingResults] = useState(false)
 
   const [selectedAnswer, setSelectedAnswer] = useState(-1)
 
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null)
 
   const onAlternativeClick = (alternativeIndex: number) => {
-    if (isLoading) return
+    // Bloqueia a seleção de novas alternativas após o submit
+    if (isShowingResults) return
 
     setSelectedAnswer(alternativeIndex)
   }
@@ -36,17 +37,22 @@ const Question = ({
   const onAlternativeFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    setIsLoading(true)
+    // Define que formulário já foi enviado
+    setIsShowingResults(true)
 
+    // Verficia se alternativa é a correta
     const isCorrect = selectedAnswer === correctAnswer
 
+    // E salva o status
     setIsCorrectAnswer(isCorrect)
 
     setTimeout(() => {
-      setIsLoading(false)
+      // Reseta para os estados iniciais para trocar de pergunta
+      setIsShowingResults(false)
       setIsCorrectAnswer(null)
       setSelectedAnswer(-1)
 
+      // Avisa o componente de fora que foi selecionado e o status da respsta
       onAnswerSubmit && onAnswerSubmit(selectedAnswer, isCorrect)
     }, 2000)
   }
@@ -81,6 +87,7 @@ const Question = ({
                 name="alternatives"
                 id={`alternative-${index}`}
               />
+
               <label htmlFor={`alternative-${index}`}>{alternative}</label>
             </S.Alternatives>
           ))}
