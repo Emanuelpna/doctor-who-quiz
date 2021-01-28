@@ -48,7 +48,7 @@ const Question = ({
       setSelectedAnswer(-1)
 
       onAnswerSubmit && onAnswerSubmit(selectedAnswer, isCorrect)
-    }, 3000)
+    }, 2000)
   }
 
   return (
