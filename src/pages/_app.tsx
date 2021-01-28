@@ -41,7 +41,7 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
 
-      <GlobalStyles theme={theme} />
+      <GlobalStyles />
 
       <Component {...pageProps} />
     </ThemeProvider>
