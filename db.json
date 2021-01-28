@@ -4,35 +4,55 @@
     "url": "https://www.artstation.com/artwork/yGryn",
     "name": "Juliana Plechkova"
   },
-  "title": "Doctor Who",
-  "description": "Teste seus conhecimentos sobre Doctor Who e divirta-se tentando descobrir as respostas",
+  "title": "Quiz - Doctor Who",
+  "description": "Teste seus conhecimentos sobre Doctor Who e veja se você pode ser o próximo Senhor do Tempo",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
-      "answer": 2,
+      "image": "https://i.ytimg.com/vi/3VjP9-Dw-Rs/maxresdefault.jpg",
+      "title": "Quantas pessoas já interpretaram o Doctor na série?",
+      "description": "Sem contar aparições e menções especiais",
+      "answer": 1,
+      "alternatives": ["14", "13", "5", "1"]
+    },
+    {
+      "image": "https://poltronanerd.com.br/wp-content/uploads/2020/06/p04znpk2.jpg",
+      "title": "O que significa a sigla T.A.R.D.I.S?",
+      "description": "Se errar não vale voltar no tempo, hein",
+      "answer": 1,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Tardis Are Random Dial Input String",
+        "Time And Relative Dimensions In Space",
+        "TARde DemaIS",
+        "Tempos Atrás Ricardo Dividia Intencionalmente Sapatos"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://www.herocollector.com/uploads/media/Who-is-Valeyard2.jpg",
+      "title": "Quem é Valleyard?",
+      "description": "Cuidado ao encontrar com ele!",
       "answer": 0,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+        "Supostamente uma Amálgama do lado negro das últimas incarnações do Doctor",
+        "O Doctor do futuro que ficou malvado",
+        "Um humano tentando se passar de Senhor do Tempo"
       ]
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/pt/3/36/Gallifrey_%282015%29.jpg",
+      "title": "Qual o nome do Planeta de Origem de Doutore?",
+      "description": "Aquele que vai e volta toda hora na série moderna",
+      "answer": 2,
+      "alternatives": ["Tatooine", "Marte", "Gallifrey", "Magrathea"]
+    },
+    {
+      "image": "https://images.amcnetworks.com/bbcamerica.com/wp-content/uploads/2012/12/companions1.jpg",
+      "title": "Qual dos nomes abaixo nunca foi de um des companheires de Doutore?",
+      "description": "Vish, tem muitos nesses quase 60 anos de série",
+      "answer": 3,
+      "alternatives": ["Yaz", "Amy", "Harry", "Mariah"]
     }
   ],
-  "external": [
-    ""
-  ],
+  "external": [""],
   "theme": {
     "colors": {
       "primary": "#613FCA",
