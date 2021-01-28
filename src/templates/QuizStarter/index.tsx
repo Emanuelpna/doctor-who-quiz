@@ -78,7 +78,7 @@ const QuizStarter = ({ title, description, top3Repos }: QuizStarterProps) => {
 
         <Spacer size={24} />
 
-        <DisplayRepos top3Repos={top3Repos} />
+        <DisplayRepos name={playerName} top3Repos={top3Repos} />
       </Widget>
 
       <Spacer size={24} />
