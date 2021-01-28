@@ -11,6 +11,7 @@ export type Repo = {
   id: number
   html_url: string
   full_name: string
+  homepage: string
 }
 
 type HomeProps = {
@@ -31,8 +32,8 @@ export default function Home({ top3Repos }: HomeProps) {
 
 export async function getStaticProps() {
   try {
-    const res = await fetch(
-      'https://api.github.com/search/repositories?q=topic:aluraquiz&per_page=5',
+    const response = await fetch(
+      'https://api.github.com/search/repositories?q=topic:aluraquiz&per_page=20&sort=stars&o=desc',
       {
         headers: {
           Accept: 'application/vnd.github.v3+json'
@@ -40,9 +41,21 @@ export async function getStaticProps() {
       }
     )
 
-    const allRepos: ApiGithubRepoResponse = await res.json()
+    const allRepos: ApiGithubRepoResponse = await response.json()
 
-    const ignoreReposFrom = ['alura-challenges', 'omariosouto', 'Emanuelpna']
+    /**
+     * Removendo os repositórios da alura e do instrutor
+     * Removendo o meu repositório
+     * Removendo repositórios que, no momento da escrita, não expõem o db.json na api
+     */
+    const ignoreReposFrom = [
+      'alura-challenges',
+      'omariosouto',
+      'Emanuelpna',
+      'mariomendonca',
+      'TheeDouglasAM3',
+      'fischerafael'
+    ]
 
     const top3Repos = allRepos.items
       .filter(
