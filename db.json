@@ -39,14 +39,14 @@
     },
     {
       "image": "https://upload.wikimedia.org/wikipedia/pt/3/36/Gallifrey_%282015%29.jpg",
-      "title": "Qual o nome do Planeta de Origem de Doutore?",
+      "title": "Qual o nome do Planeta de Origem do Doctor?",
       "description": "Aquele que vai e volta toda hora na série moderna",
       "answer": 2,
       "alternatives": ["Tatooine", "Marte", "Gallifrey", "Magrathea"]
     },
     {
       "image": "https://images.amcnetworks.com/bbcamerica.com/wp-content/uploads/2012/12/companions1.jpg",
-      "title": "Qual dos nomes abaixo nunca foi de um des companheires de Doutore?",
+      "title": "Qual dos nomes abaixo nunca foi de um des companheires do Doctor?",
       "description": "Vish, tem muitos nesses quase 60 anos de série",
       "answer": 3,
       "alternatives": ["Yaz", "Amy", "Harry", "Mariah"]
