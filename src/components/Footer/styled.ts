@@ -18,6 +18,12 @@ export const Container = styled.footer`
       max-width: 27ch;
     }
 
+    @media screen and (max-width: 800px) {
+      p {
+        max-width: 20ch;
+      }
+    }
+
     a {
       text-decoration: none;
       color: ${theme.colors.secondary};

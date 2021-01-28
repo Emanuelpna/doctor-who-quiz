@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -9,5 +9,19 @@ export const GlobalStyles = createGlobalStyle`
 
   body, button {
     font-family: 'Heebo', sans-serif;
+  }
+
+
+  ${({ theme }) => css`
+    body {
+      display: flex;
+      height: 100%;
+      background: ${theme.colors.mainBg};
+    }
+  `}
+
+  #__next {
+    flex: 1;
+    height: 100%;
   }
 `

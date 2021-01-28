@@ -1,18 +1,28 @@
 import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
-  display: flex;
-  height: 100vh;
+  ${({ theme }) => css`
+    height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    background: ${theme.colors.mainBg};
+
+    @media screen and (max-width: 800px) {
+      height: 100%;
+    }
+  `}
 `
 
 export const BackgroundImage = styled.div<{ imageBg: string }>`
   ${({ theme, imageBg }) => css`
-    background: ${theme.colors.mainBg};
-    background-image: url(${imageBg});
     flex: 1;
-    background-size: cover;
-    padding-right: 50%;
+    height: 100%;
     padding-top: 4rem;
+    padding-right: 50%;
+    background-size: cover;
+    background-image: url(${imageBg});
 
     @media screen and (max-width: 800px) {
       padding-right: 6%;
@@ -34,6 +44,7 @@ export const BackgroundImage = styled.div<{ imageBg: string }>`
         right: 0;
         z-index: 1;
       }
+
       *:first-child {
         position: relative;
         z-index: 10;
@@ -43,6 +54,7 @@ export const BackgroundImage = styled.div<{ imageBg: string }>`
 `
 
 export const ContentContainer = styled.section`
-  max-width: 24rem;
+  flex: 1;
   margin: auto;
+  max-width: 24rem;
 `

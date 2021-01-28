@@ -26,5 +26,13 @@ export const Container = styled.span`
         right: 0;
         bottom: 0;
       }
+
+      @media screen and (max-width: 800px) {
+        position: relative;
+        width: 80%;
+        text-align: center;
+        margin: 2rem 0;
+        border-radius: ${theme.borderRadius};
+      }
     `}
 `
