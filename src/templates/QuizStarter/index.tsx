@@ -7,13 +7,17 @@ import Footer from 'components/Footer'
 import QuizLogo from 'components/QuizLogo'
 import { Spacer } from 'components/Spacer'
 import TextField from 'components/TextField'
+import DisplayRepos from 'components/DisplayRepos'
+
+import { Repo } from 'pages'
 
 export type QuizStarterProps = {
   title: string
   description: string
+  top3Repos: Repo[]
 }
 
-const QuizStarter = ({ title, description }: QuizStarterProps) => {
+const QuizStarter = ({ title, description, top3Repos }: QuizStarterProps) => {
   const router = useRouter()
 
   const [playerName, setPlayerName] = useState('')
@@ -71,6 +75,10 @@ const QuizStarter = ({ title, description }: QuizStarterProps) => {
           Dá uma olhada nesses quizes incríveis que o pessoal da{' '}
           <strong>Imersão React Next.js</strong> fez:
         </span>
+
+        <Spacer size={24} />
+
+        <DisplayRepos top3Repos={top3Repos} />
       </Widget>
 
       <Spacer size={24} />
