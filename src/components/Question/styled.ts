@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import { Display } from 'components/Display'
+
 export const Container = styled.div`
   height: auto;
   width: 100%;
@@ -29,21 +31,13 @@ export const AlternativesContainer = styled.ul`
   justify-content: space-between;
 `
 
-export const Alternatives = styled.li<{
+export const Alternatives = styled(Display)<{
   isSelected: boolean
   isCorrect: boolean
   isWrong: boolean
 }>`
   ${({ theme, isSelected, isCorrect, isWrong }) =>
     css`
-      padding: 0.8rem;
-      cursor: pointer;
-      list-style: none;
-      margin-bottom: 0.8rem;
-      color: ${theme.colors.contrastText};
-      border-radius: ${theme.borderRadius};
-      border: 1px solid ${theme.colors.primary};
-
       & > input {
         display: none;
       }
