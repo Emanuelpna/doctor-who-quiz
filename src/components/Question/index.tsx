@@ -56,7 +56,7 @@ const Question = ({
       <S.Title>{question}</S.Title>
       <S.Description>{description}</S.Description>
 
-      <Spacer size={12} />
+      <Spacer size={24} />
 
       <S.Form onSubmit={onAlternativeFormSubmit}>
         <S.AlternativesContainer>
@@ -86,7 +86,7 @@ const Question = ({
           ))}
         </S.AlternativesContainer>
 
-        <Spacer size={12} />
+        <Spacer size={24} />
 
         {isCorrectAnswer === null && (
           <Button disabled={selectedAnswer < 0} type="submit">
