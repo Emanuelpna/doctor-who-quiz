@@ -35,14 +35,33 @@ export const getQuizResultMessage = ({
     correctAnswers: number,
     totalQuestions: number
   ) => ({
-    [QuizStatus.BAD]: `Não foi dessa vez, ${username} 😢 \n\nVocê acertou ${correctAnswers} de ${totalQuestions} respostas! \n\nMas tenho certeza que você consegue!`,
-    [QuizStatus.GOOD]: `Mandou bem, ${username} 🙂 \n\nVocê acertou ${correctAnswers} de ${totalQuestions} respostas! \n\nAinda tem muito conhecimento te esperando, não desista!`,
-    [QuizStatus.EXCELENT]: `Parabéns, ${username} 🥳 \n\nVocê acertou ${correctAnswers} de ${totalQuestions} respostas! \n\nVocê está quase virando um especialista!`,
-    [QuizStatus.PERFECT]: `Que isso, ${username} 🎉🎉 \n\nVocê acertou ${correctAnswers} de ${totalQuestions} respostas! \n\nVocê é a maior autoridade no assunto!`
+    [QuizStatus.BAD]: {
+      title: `Não foi dessa vez, ${username} 😢 `,
+      correctCount: `Você acertou ${correctAnswers} de ${totalQuestions} respostas!`,
+      cheerUp: `Mas tenho certeza que você consegue!`
+    },
+    [QuizStatus.GOOD]: {
+      title: `Mandou bem, ${username} 🙂 `,
+      correctCount: `Você acertou ${correctAnswers} de ${totalQuestions} respostas!`,
+      cheerUp: `Ainda tem muito conhecimento te esperando, não desista!`
+    },
+    [QuizStatus.EXCELENT]: {
+      title: `Parabéns, ${username} 🥳 `,
+      correctCount: `Você acertou ${correctAnswers} de ${totalQuestions} respostas!`,
+      cheerUp: `Você está quase virando um especialista!`
+    },
+    [QuizStatus.PERFECT]: {
+      title: `Que isso, ${username} 🎉🎉 `,
+      correctCount: `Você acertou ${correctAnswers} de ${totalQuestions} respostas!`,
+      cheerUp: `Você é a maior autoridade no assunto!`
+    }
   })
 
   return (
-    getMessages(username, correctAnswers, totalQuestions)[status] ??
-    `${username}, você acertou ${correctAnswers} de ${totalQuestions} respostas!`
+    getMessages(username, correctAnswers, totalQuestions)[status] ?? {
+      title: `${username}`,
+      correctCount: `Você acertou ${correctAnswers} de ${totalQuestions} respostas!`,
+      cheerUp: ``
+    }
   )
 }

@@ -8,7 +8,7 @@ import QuizLogo from 'components/QuizLogo'
 import { Spacer } from 'components/Spacer'
 import Question from 'components/Question'
 
-import { getQuizResultMessage } from 'services/getQuizResultMessage'
+import QuizResults from 'components/QuizResults'
 
 export type QuestionType = {
   image: string
@@ -75,10 +75,10 @@ const Quiz = ({ questions }: QuizProps) => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      setCurrentQuizState(QuizState.QUIZ)
-    }, 2000)
-  }, [])
+    if (questions.length === 0) return
+
+    setCurrentQuizState(QuizState.QUIZ)
+  }, [questions])
 
   return (
     <>
@@ -106,14 +106,13 @@ const Quiz = ({ questions }: QuizProps) => {
         )}
 
         {currentQuizState === QuizState.RESULT && (
-          <span style={{ whiteSpace: 'pre-wrap' }}>
-            {getQuizResultMessage({
-              username: router.query.name as string,
-              correctAnswers: answers.filter((answer) => !!answer.isCorrect)
-                .length,
-              totalQuestions: answers.length
-            })}
-          </span>
+          <QuizResults
+            username={router.query.name as string}
+            totalQuestions={answers.length}
+            correctAnswers={
+              answers.filter((answer) => !!answer.isCorrect).length
+            }
+          />
         )}
       </Widget>
 
