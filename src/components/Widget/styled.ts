@@ -67,7 +67,7 @@ export const Image = styled.img`
   width: 100%;
   height: 10rem;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
 `
 
 export const Content = styled.div`
