@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion'
 import styled, { css } from 'styled-components'
 
 import { AnswerStatusProps } from '.'
 
-export const Container = styled.div<AnswerStatusProps>`
+export const Container = styled(motion.div)<AnswerStatusProps>`
   ${({ theme, isCorrect }) => css`
     width: 45px;
     height: 45px;
