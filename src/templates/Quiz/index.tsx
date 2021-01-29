@@ -10,28 +10,11 @@ import Question from 'components/Question'
 
 import QuizResults from 'components/QuizResults'
 
-export type QuestionType = {
-  image: string
-  title: string
-  description: string
-  answer: number
-  alternatives: string[]
-}
+import { Answer, QuizState } from 'types/Quiz'
+import { Question as QuestionType } from 'types/Database'
 
 export type QuizProps = {
   questions: QuestionType[]
-}
-
-type AnswerType = {
-  questionIndex: number
-  selectedAnswer: number
-  isCorrect: boolean
-}
-
-enum QuizState {
-  LOADING,
-  QUIZ,
-  RESULT
 }
 
 const Quiz = ({ questions }: QuizProps) => {
@@ -39,7 +22,7 @@ const Quiz = ({ questions }: QuizProps) => {
 
   const [questionIndex, setQuestionIndex] = useState(0)
 
-  const [answers, setAnswers] = useState<AnswerType[]>([])
+  const [answers, setAnswers] = useState<Answer[]>([])
 
   const [currentQuizState, setCurrentQuizState] = useState(QuizState.LOADING)
 

@@ -9,7 +9,7 @@ import { Spacer } from 'components/Spacer'
 import TextField from 'components/TextField'
 import DisplayRepos from 'components/DisplayRepos'
 
-import { Repo } from 'pages'
+import { Repo } from 'types/Repositories'
 
 export type QuizStarterProps = {
   title: string

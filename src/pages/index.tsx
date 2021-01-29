@@ -3,16 +3,7 @@ import db from '../../db.json'
 import Layout from 'components/Layout'
 import QuizStarter from 'templates/QuizStarter'
 
-type ApiGithubRepoResponse = {
-  items: Repo[]
-}
-
-export type Repo = {
-  id: number
-  html_url: string
-  full_name: string
-  homepage: string
-}
+import { ApiGithubRepoResponse, Repo } from 'types/Repositories'
 
 type HomeProps = {
   top3Repos: Repo[]
@@ -65,6 +56,8 @@ export async function getStaticProps() {
           )
       )
       .slice(0, 3)
+
+    console.log('top3Repos :>> ', top3Repos)
 
     return {
       props: { top3Repos }

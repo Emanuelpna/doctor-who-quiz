@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Repo } from 'pages'
+import { Repo } from 'types/Repositories'
 
 import * as S from './styled'
 
@@ -15,7 +15,7 @@ const DisplayRepos = ({ top3Repos, name }: DisplayReposProps) => {
       .replace(/\//g, '')
       .replace('https:', '')
       .replace('.vercel.app', '')
-      .replace('.', '__')
+      .replace('.', '___')
   }
 
   return (

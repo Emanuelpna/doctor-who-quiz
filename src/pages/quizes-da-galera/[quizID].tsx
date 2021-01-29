@@ -1,46 +1,55 @@
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-
-import db from '../../../db.json'
+import { GetServerSideProps } from 'next'
+import { ThemeProvider } from 'styled-components'
 
 import Layout from 'components/Layout'
+
 import Quiz from 'templates/Quiz'
 
-export default function QuizesDaGalera() {
-  const router = useRouter()
+import { Database } from 'types/Database'
 
-  const [questions, setQuestions] = useState([])
+type QuizesDaGaleraProps = {
+  database: Database
+}
 
-  const { quizID } = router.query
+export default function QuizesDaGalera({ database }: QuizesDaGaleraProps) {
+  return (
+    <ThemeProvider theme={database.theme}>
+      <Layout imageBg={database.bg} bgCopy={database['bg-copy']}>
+        <Quiz questions={database.questions} />
+      </Layout>
+    </ThemeProvider>
+  )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { quizID } = context.query
 
   const translateID = (quizID: string) => {
-    return quizID.replace('__', '.')
+    return quizID.replace('___', '.')
   }
 
-  useEffect(() => {
-    const mountURL = (quizID: string) => {
-      return `https://${translateID(quizID)}.vercel.app`
+  const mountURL = (quizID: string) => {
+    return `https://${translateID(quizID)}.vercel.app`
+  }
+
+  try {
+    const url = mountURL(quizID as string)
+
+    const response = await fetch(`${url}/api/db`)
+
+    const externalDatabase = await response.json()
+
+    if (!externalDatabase) throw new Error('Não encontrou arquivo da API')
+
+    return {
+      props: { database: externalDatabase }
     }
+  } catch (error) {
+    context.res.writeHead(302, { Location: '/' })
+    context.res.end()
 
-    const getExternalQuestions = async () => {
-      try {
-        const response = await fetch(`${mountURL(quizID as string)}/api/db`)
-
-        const externalDatabase = await response.json()
-
-        setQuestions(externalDatabase.questions)
-      } catch (error) {
-        alert('Esse repositório não expõem as questões na API')
-        router.push('/')
-      }
+    return {
+      props: {}
     }
-
-    getExternalQuestions()
-  }, [quizID, router])
-
-  return (
-    <Layout imageBg={db.bg} bgCopy={db['bg-copy']}>
-      <Quiz questions={questions} />
-    </Layout>
-  )
+  }
 }
