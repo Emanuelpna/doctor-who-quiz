@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import styled, { css } from 'styled-components'
 
-export const Container = styled.footer`
+export const Container = styled(motion.footer)`
   ${({ theme }) => css`
     padding: 20px;
     display: flex;
