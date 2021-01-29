@@ -57,8 +57,6 @@ export async function getStaticProps() {
       )
       .slice(0, 3)
 
-    console.log('top3Repos :>> ', top3Repos)
-
     return {
       props: { top3Repos }
     }
