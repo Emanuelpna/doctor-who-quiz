@@ -32,7 +32,7 @@ const Widget = ({
       }}
       initial="hidden"
       animate="show"
-      transition={{ duration: 0.3, delay }}
+      transition={{ duration: 0.6, delay, ease: 'easeInOut' }}
     >
       {!!title && (
         <S.TitleContainer>
