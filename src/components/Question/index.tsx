@@ -43,6 +43,8 @@ const Question = ({
     // Verficia se alternativa é a correta
     const isCorrect = selectedAnswer === correctAnswer
 
+    setAnimateKey(isCorrect ? 'correct' : 'wrong')
+
     // E salva o status
     setIsCorrectAnswer(isCorrect)
 
@@ -51,11 +53,14 @@ const Question = ({
       setIsShowingResults(false)
       setIsCorrectAnswer(null)
       setSelectedAnswer(-1)
+      setAnimateKey('')
 
       // Avisa o componente de fora que foi selecionado e o status da respsta
       onAnswerSubmit && onAnswerSubmit(selectedAnswer, isCorrect)
     }, 2000)
   }
+
+  const [animateKey, setAnimateKey] = useState('')
 
   return (
     <S.Container>
@@ -68,6 +73,14 @@ const Question = ({
         <S.AlternativesContainer>
           {alternatives.map((alternative, index) => (
             <S.Alternatives
+              variants={{
+                correct: { scale: [1, 1.02, 1.02, 1.02, 0.98, 1] },
+                wrong: { x: ['0%', '-1.5%', '1.5%', '-1.5%', '1.5%', '0%'] },
+                base: { x: '0%', scale: 1 }
+              }}
+              initial="base"
+              animate={selectedAnswer === index && animateKey}
+              transition={{ duration: 0.35 }}
               onClick={() => onAlternativeClick(index)}
               key={alternative}
               isSelected={selectedAnswer === index}

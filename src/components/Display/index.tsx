@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import styled, { css } from 'styled-components'
 
-export const Display = styled.li`
+export const Display = styled(motion.li)`
   ${({ theme }) => css`
     padding: 0.8rem;
     cursor: pointer;
