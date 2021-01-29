@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import Widget from 'components/Widget'
 import Footer from 'components/Footer'
+import Button from 'components/Button'
 import Loading from 'components/Loading'
 import QuizLogo from 'components/QuizLogo'
 import { Spacer } from 'components/Spacer'
@@ -89,13 +90,19 @@ const Quiz = ({ questions }: QuizProps) => {
         )}
 
         {currentQuizState === QuizState.RESULT && (
-          <QuizResults
-            username={router.query.name as string}
-            totalQuestions={answers.length}
-            correctAnswers={
-              answers.filter((answer) => !!answer.isCorrect).length
-            }
-          />
+          <>
+            <QuizResults
+              username={router.query.name as string}
+              totalQuestions={answers.length}
+              correctAnswers={
+                answers.filter((answer) => !!answer.isCorrect).length
+              }
+            />
+
+            <Spacer size={24} />
+
+            <Button onClick={() => router.push('/')}>Tentar novamente</Button>
+          </>
         )}
       </Widget>
 
