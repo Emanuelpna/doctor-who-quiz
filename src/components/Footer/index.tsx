@@ -1,7 +1,6 @@
-import { HTMLAttributes } from 'react'
 import * as S from './styled'
 
-const Footer = (props: HTMLAttributes<HTMLElement>) => {
+const Footer = () => {
   return (
     <S.Container
       variants={{
@@ -11,7 +10,6 @@ const Footer = (props: HTMLAttributes<HTMLElement>) => {
       initial="hidden"
       animate="show"
       transition={{ duration: 0.6, delay: 0.3, ease: 'easeInOut' }}
-      {...props}
     >
       <a href="https://www.alura.com.br/">
         <img
