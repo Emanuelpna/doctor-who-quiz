@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
-export const Container = styled.div`
+import { motion } from 'framer-motion'
+
+export const Container = styled(motion.div)`
   ${({ theme }) =>
     css`
       height: auto;

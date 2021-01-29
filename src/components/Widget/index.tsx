@@ -8,6 +8,7 @@ import * as S from './styled'
 type WidgetProps = {
   children: React.ReactNode
   title?: string
+  delay?: number
   enableBackButton?: boolean
   cover?: string | null
 }
@@ -16,6 +17,7 @@ const Widget = ({
   title,
   cover,
   children,
+  delay = 0,
   enableBackButton = false
 }: WidgetProps) => {
   const router = useRouter()
@@ -23,7 +25,15 @@ const Widget = ({
   const backOnePage = () => router.back()
 
   return (
-    <S.Container>
+    <S.Container
+      variants={{
+        show: { opacity: 1, y: '0' },
+        hidden: { opacity: 0, y: '20%' }
+      }}
+      initial="hidden"
+      animate="show"
+      transition={{ duration: 0.3, delay }}
+    >
       {!!title && (
         <S.TitleContainer>
           {enableBackButton && (

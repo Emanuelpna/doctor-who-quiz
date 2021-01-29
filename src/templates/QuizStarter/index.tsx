@@ -68,7 +68,7 @@ const QuizStarter = ({ title, description, top3Repos }: QuizStarterProps) => {
 
       <Spacer size={24} />
 
-      <Widget>
+      <Widget delay={0.3}>
         <h3>Quizes da Galera</h3>
 
         <span>
